@@ -1,4 +1,4 @@
-import getCanvasById from './module/getCanvas';
+import getCanvasById from '../module/getCanvas';
 
 window.onload = () => {
     const [header, body, footer] = ['header', 'body', 'footer']
