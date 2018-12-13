@@ -73,7 +73,7 @@ module.exports = {
         }),
         //new webpack.HotModuleReplacementPlugin(),//热加载插件
         new CleanWebpackPlugin(['dist', 'build'], {
-            // root: path.resolve(root), // 根目录
+            root: path.resolve(root), // 根目录
             verbose: false,
             exclude: ['img']//不删除img静态资源
         }),

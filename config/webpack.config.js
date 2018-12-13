@@ -44,18 +44,17 @@ module.exports = {
             exclude: /node_modules/
         }, {
             test: /\.css$/,
-            use: ExtractTextPlugin.extract({
-                fallback: "style-loader",
-                use: [{
-                    loader: "css-loader",
-                    options: {
-                        modules: true,
-                        localIdentName: '[name]__[local]--[hash:base64:5]'
-                    }
-                }, {
-                    loader: "postcss-loader"
-                }],
-            })
+            use: [{
+                loader: "style-loader",
+            }, {
+                loader: "css-loader",
+                options: {
+                    modules: true,
+                    localIdentName: '[name]__[local]--[hash:base64:5]'
+                }
+            }, {
+                loader: "postcss-loader"
+            }],
         }, {
             test: [/\.gif$/, /\.jpe?g$/, /\.png$/],
             loader: 'url-loader',
@@ -73,7 +72,7 @@ module.exports = {
         }),
         new webpack.HotModuleReplacementPlugin(),//热加载插件
         new CleanWebpackPlugin(['dist', 'build'], {
-            // root: path.resolve(root), // 根目录
+            root: path.resolve(root), // 根目录
             verbose: false,
             exclude: ['img']//不删除img静态资源
         })
