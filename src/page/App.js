@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import getCanvas from '../module/getCanvas';
+import { getCanvas } from '../module/util';
 import renderSquare from '../module/renderSquare';
 
 
@@ -11,7 +11,7 @@ export default class App extends Component {
         }
     }
     componentDidMount() {
-        const can1 = getCanvas('app-can1');
+        const can1 = getCanvas('#app-can1');
         renderSquare(can1);
     }
 
