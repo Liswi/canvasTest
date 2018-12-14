@@ -1,0 +1,1 @@
+export const isCanvas = (ele) => ele.getContext ? true : false;

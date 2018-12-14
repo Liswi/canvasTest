@@ -39,7 +39,13 @@ module.exports = {
         rules: [{
             test: /(\.jsx|\.js)$/,
             use: {
-                loader: "babel-loader"
+                loader: "babel-loader",
+                options: {
+                    presets: ['@babel/env', '@babel/react'],
+                    plugins: [
+                        "@babel/plugin-transform-runtime"
+                    ]
+                }
             },
             exclude: /node_modules/
         }, {
