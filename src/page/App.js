@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
-import { getCanvas } from '../module/util';
-import renderSquare from '../module/renderSquare';
+import { Link } from 'react-router';
 
+const data = [
+    { path: '/interval', name: 'interval' },
+    { path: '/fromEvent', name: 'fromEvent' },
+    { path: '/create', name: 'create' },
+    { path: '/subject', name: 'Subject' },
+    { path: '/infiniteScroll', name: 'InfiniteScroll' }
+]
 
 export default class App extends Component {
     constructor(props) {
@@ -9,18 +15,37 @@ export default class App extends Component {
         this.state = {
 
         }
+        this.style = {
+            divStyle: {
+                width: 100,
+                height: 55,
+                textAlign: 'center',
+                display: 'inline-block',
+                padding: '45px 0 0'
+            },
+            childrenStyle: {
+                margin: '50px',
+                padding: '30px',
+                border: "3px solid #f1f1f1"
+            }
+        }
     }
     componentDidMount() {
-        const can1 = getCanvas('#app-can1');
-        renderSquare(can1);
     }
 
     render() {
-
+        const { children } = this.props;
+        // console.log(children);
         return <div id='app2'>
-            <canvas id='app-can1' width="150" height="150">{'您的浏览器不支持！'}</canvas>
-            <canvas id='app-can2' width="150" height="150">{'您的浏览器不支持！'}</canvas>
-            <canvas id='app-can3' width="150" height="150">{'您的浏览器不支持！'}</canvas>
+            {data.map((item, index) => (
+                <div key={`index${index}`} style={this.style.divStyle}>
+                    <Link to={item.path} >{item.name}</Link>
+                </div>
+            ))}
+            <div style={this.style.childrenStyle}>
+                {children}
+            </div>
+
         </div>
     }
 }

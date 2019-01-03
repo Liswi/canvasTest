@@ -1,8 +1,9 @@
 import React from 'react';
 import { render } from 'react-dom';
-import App from './page/App';
+import { browserHistory, Router } from 'react-router'
+import routers from './router';
 const root = document.querySelector('#root');
-render(<App />, root);
+render(<Router history={browserHistory} routes={routers} />, root);
 // window.onload = () => {
 //     const [header, body, footer] = ['header', 'body', 'footer']
 //         .map(id => getCanvasById('header'));
